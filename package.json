@@ -1,0 +1,9 @@
+{
+  "name": "inot",
+  "version": "1.0.0",
+  "description": "Inot. Why not?",
+  "main": "index.js",
+  "repository": "https://github.com/Zemalax/inot.git",
+  "author": "Zemalax <Zemalax@gmail.com>",
+  "license": "MIT"
+}
