@@ -125,19 +125,20 @@ app.get('/oink', (request, response) => {
     });
 });
 
+app.get('/noshameforpig', (request, response) => {
+    response.render('index', {
+        number: '',
+        letter: '',
+        hint: '',
+        solved: 'true'
+    });
+});
+
 app.get('/', (request, response) => {
     response.render('index', {
         number: '',
         letter: '',
         hint: ''
-    });
-});
-
-app.get('/noshameforpig', (request, response) => {
-    response.render('index', {
-        number: '777',
-        letter: 'PIG',
-        hint: 'YOU WON'
     });
 });
 
