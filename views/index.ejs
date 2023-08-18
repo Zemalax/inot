@@ -47,6 +47,59 @@
         border-radius: 15px;
         padding: 20px;
       }
+
+      .peppa {
+        animation: peppa-animation 4s linear;
+        animation-iteration-count: infinite;
+        position: absolute;
+        transition: 4s all;
+      }
+
+      .peppa_vis {
+        animation: peppa-rotation  0.3s linear;
+        animation-iteration-count: infinite;
+        background-image: url(peppa.png);
+        background-size: cover;
+        width: 73px;
+        height: 96px;
+        transition: 4s all;
+      }
+
+      @keyframes peppa-animation {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-100px);
+        }
+        50% {
+          transform: translateX(0px);
+        }
+        75% {
+          transform: translateX(100px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes peppa-rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(15deg);
+        }
+        50% {
+          transform: rotate(0deg);
+        }
+        75% {
+          transform: rotate(-15deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
     </style>
   </head>
 
@@ -86,13 +139,21 @@
 
   <body>
     <div class="inot-container">
-        <input class="inot-solver" type="text" placeholder="Say a word pig and Enter">
+        <input class="inot-solver" type="text" placeholder="Say a word oink and Enter">
 
+      <% if(locals.number){ %>
         <div class="inot-result">
-          <h2>Letter <%= number %> - <%= letter%></h2>
-            <h2>Hint: <%= hint %></h2>
-
+          <h2>Letter <%= locals.number %> - <%= letter%></h2>
+          <h2>Hint: <%= hint %></h2>
         </div>
+      <% } %>
+
+
+      <% if(locals.peppa){ %>
+        <div class="peppa">
+          <div class="peppa_vis"></div>
+        </div>
+      <% } %>
     </div>
 
   </body>
