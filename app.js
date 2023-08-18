@@ -26,7 +26,7 @@ app.get('/jeppa', (request, response) => {
 app.get('/pig', (request, response) => {
     response.render('index', {
         number: '2',
-        letter: 'O',
+            letter: 'O',
         hint: 'us em error'
     });
 });
@@ -103,7 +103,7 @@ app.get('/nanaclif', (request, response) => {
     });
 });
 
-app.get('/14', (request, response) => {
+app.get('/81', (request, response) => {
     response.render('index', {
         number: '12',
         letter: 'I',
