@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.cdnfonts.com/css/tolkien" rel="stylesheet">
+    <style>
+      * {
+        font-family: 'Tolkien', sans-serif;
+      }
+      body {
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #0a0c0b;
+      }
+      .inot-container {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .inot-solver {
+        display: flex;
+        background-color: #0a0c0b;
+        color: #c7b277;
+        font-size: 27px;
+        margin-top: 120px;
+        text-align: center;
+      }
+
+      .inot-result {
+        display: flex;
+        color: #c7b277;
+        font-size: 27px;
+        margin-top: 120px;
+        text-align: center;
+        flex-direction: column;
+        background-color: #0a0c0b;
+        border: 3px solid #c7b277;
+        border-radius: 15px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+
+  <script>
+    var send = function(data) {
+      const url = "/handler"
+      let xhr = new XMLHttpRequest()
+      xhr.open('POST', url, true)
+      xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+      xhr.send(data);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          const responseBody = JSON.parse(xhr.responseText);
+          window.open(responseBody.url, "_self")
+        }
+      }
+
+      xhr.onload = function () {
+        if(xhr.status === 201) {
+          console.log("Post successfully created!")
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.inot-solver').addEventListener("keypress", (e) => {
+        if (e.key==='Enter') {
+          const value = document.querySelector('.inot-solver').value;
+          send(JSON.stringify({data: value}));
+        }
+      })
+    })
+
+
+  </script>
+
+  <body>
+    <div class="inot-container">
+        <input class="inot-solver" type="text" placeholder="Say a word pig and Enter">
+
+        <div class="inot-result">
+          <h2>Letter <%= number %> - <%= letter%></h2>
+            <h2>Hint: <%= hint %></h2>
+
+        </div>
+    </div>
+
+  </body>
+</html>
