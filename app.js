@@ -111,7 +111,7 @@ app.get('/14', (request, response) => {
     });
 });
 
-app.get('/garlik', (request, response) => {
+app.get('/garlic', (request, response) => {
     response.render('index', {
         number: '13',
         letter: 'G',
