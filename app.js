@@ -1,12 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3000;
 
-app.set('view engine', 'ejs');
-app.use(express.static('static'))
-app.use(bodyParser.json());
+app
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
+    .use(express.static('static'))
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.json())
+    .use(bodyParser.raw());
 
 app.post('/handler', (request, response) => {
     console.log(request.body)
@@ -27,13 +32,7 @@ app.get('/logs/post', (req, res) =>{
     res.sendStatus(200)
 });
 
-app.get('/', (request, response) => {
-    response.render('pages/index', {
-        number: '',
-        letter: '',
-        hint: ''
-    });
-});
+app.get('/', (request, response) => {response.render('pages/index')});
 
 
 app.listen(port, () => {
