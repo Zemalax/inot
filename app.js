@@ -13,18 +13,18 @@ app
     .use(bodyParser.json())
     .use(bodyParser.raw());
 
-app.post('/handler', (request, response) => {
-    console.log(request.body)
-    const body = request.body;
-    response.setHeader('Content-type', 'application/json; charset=UTF-8')
-    response.send({url: body.data});
+app.post('/handler', (req, res) => {
+    console.log(req.body)
+    const body = req.body;
+    res.setHeader('Content-type', 'application/json; charset=UTF-8')
+    res.send({url: body.data});
 });
 
-app.get('/postback', (request, response) => {
-    console.log(request.body)
+app.get('/postback', (req, res) => {
+    console.log(req.body)
     console.log('LOG GET BODY:', req.body);
     console.log('LOG GET HEADERS:', req.headers);
-    response.sendStatus(200)
+    res.sendStatus(200)
 });
 
 app.get('/logs/get', (req, res) =>{
