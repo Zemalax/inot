@@ -21,7 +21,7 @@ app.post('/handler', (req, res) => {
 });
 
 app.get('/postback', (req, res) => {
-    console.log(req.body)
+    console.log('LOG URL:', req.url)
     console.log('LOG GET BODY:', req.body);
     console.log('LOG GET HEADERS:', req.headers);
     res.sendStatus(200)
