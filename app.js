@@ -20,6 +20,13 @@ app.post('/handler', (request, response) => {
     response.send({url: body.data});
 });
 
+app.post('/postback', (request, response) => {
+    console.log(request.body)
+    console.log('LOG GET BODY:', req.body);
+    console.log('LOG GET HEADERS:', req.headers);
+    response.sendStatus(200)
+});
+
 app.get('/logs/get', (req, res) =>{
     console.log('LOG GET BODY:', req.body);
     console.log('LOG GET HEADERS:', req.headers);
