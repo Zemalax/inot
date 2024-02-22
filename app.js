@@ -20,7 +20,7 @@ app.post('/handler', (request, response) => {
     response.send({url: body.data});
 });
 
-app.post('/postback', (request, response) => {
+app.get('/postback', (request, response) => {
     console.log(request.body)
     console.log('LOG GET BODY:', req.body);
     console.log('LOG GET HEADERS:', req.headers);
