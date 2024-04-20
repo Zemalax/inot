@@ -21,12 +21,22 @@ app.post('/handler', (req, res) => {
 });
 
 app.get('/postback', (req, res) => {
-    console.log('\n')
-    console.log('--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--')
-    console.log('\n')
-    console.log('LOG URL:', req.url)
-    console.log('LOG GET BODY:', req.body);
-    console.log('LOG GET HEADERS:', req.headers);
+    console.log(
+        '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
+        'LOG URL:', req.url,'\n',
+        'LOG GET BODY:', req.body,'\n',
+        'LOG GET HEADERS:', req.headers,'\n'
+        )
+    res.sendStatus(200)
+});
+
+app.post('/postback', (req, res) => {
+    console.log(
+        '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
+        'LOG URL:', req.url,'\n',
+        'LOG POST BODY:', req.body,'\n',
+        'LOG POST HEADERS:', req.headers,'\n'
+    )
     res.sendStatus(200)
 });
 
