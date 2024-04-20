@@ -22,7 +22,7 @@ app.post('/handler', (req, res) => {
 
 app.get('/postback', (req, res) => {
     console.log('\n')
-    console.log('--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', req.url)
+    console.log('--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--')
     console.log('\n')
     console.log('LOG URL:', req.url)
     console.log('LOG GET BODY:', req.body);
@@ -32,7 +32,7 @@ app.get('/postback', (req, res) => {
 
 app.get('/logs/get', (req, res) =>{
     console.log('\n')
-    console.log('--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', req.url)
+    console.log('--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--')
     console.log('\n')
     console.log('LOG GET BODY:', req.body);
     console.log('LOG GET HEADERS:', req.headers);
