@@ -5,6 +5,8 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+let globalVariable = 0;
+
 app
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
@@ -23,9 +25,9 @@ app.post('/handler', (req, res) => {
 app.get('/postback', (req, res) => {
     console.log(
         '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
-        'LOG URL:', req.url,'\n',
-        'LOG GET BODY:', req.body,'\n',
-        'LOG GET HEADERS:', req.headers,'\n'
+        'POSTBACK URL:', req.url,'\n',
+        'POSTBACK GET BODY:', req.body,'\n',
+        'POSTBACK GET HEADERS:', req.headers,'\n'
         )
     res.sendStatus(200)
 });
@@ -33,9 +35,9 @@ app.get('/postback', (req, res) => {
 app.post('/postback', (req, res) => {
     console.log(
         '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
-        'LOG URL:', req.url,'\n',
-        'LOG POST BODY:', req.body,'\n',
-        'LOG POST HEADERS:', req.headers,'\n'
+        'POSTBACK URL:', req.url,'\n',
+        'POSTBACK POST BODY:', req.body,'\n',
+        'POSTBACK POST HEADERS:', req.headers,'\n'
     )
     res.sendStatus(200)
 });
@@ -56,6 +58,11 @@ app.get('/logs/post', (req, res) =>{
 });
 
 app.get('/', (request, response) => {response.render('pages/index')});
+
+app.get('/tracker', (request, response) => {
+    globalVariable++;
+    response.render('pages/tracker', {count: globalVariable})
+});
 
 
 app.listen(port, () => {
