@@ -24,8 +24,8 @@
   </body>
 
   <script>
-    let clickIds = <%= clickIds %>;
-    let customs = <%= customs %>;
+    let clickIds = "<%= clickIds %>";
+    let customs = "<%= customs %>";
 
     let clickIdsSplitted = clickIds.split(",");
     let customsSplitted = customs.split(",");
@@ -38,6 +38,14 @@
       const elDiv = document.createElement("div");
       elDiv.textContent = el;
       clicksElem.appendChild(elDiv);
+    });
+
+    let customsElem = document.querySelector(".customs");
+
+    customsSplitted.map(el => {
+      const elDiv = document.createElement("div");
+      elDiv.textContent = el;
+      customsElem.appendChild(elDiv);
     });
   </script>
 </html>
