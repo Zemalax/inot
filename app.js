@@ -27,8 +27,8 @@ app.post('/handler', (req, res) => {
 app.get('/postback', (req, res) => {
 
     views = views + 1;
-    console.log(req.query.clickid);
-
+    clickIds.push(req.query.clickid);
+    customs.push(req.query.custom3);
 
     console.log(
         '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
