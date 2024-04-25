@@ -79,6 +79,7 @@ app.get('/tracker', (request, response) => {
         views: views,
         clickIds: clickIds,
         customs: customs,
+        frauds: frauds,
     })
 });
 
