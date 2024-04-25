@@ -62,7 +62,6 @@ app.get('/logs/post', (req, res) =>{
 app.get('/', (request, response) => {response.render('pages/index')});
 
 app.get('/tracker', (request, response) => {
-    globalVariable++;
     response.render('pages/tracker', {
         views: views,
         clickIds: clickIds,
