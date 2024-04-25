@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include ("../partials/head.ejs") %>
     <meta name="pushsdk" content="5bbbfcbe9b316628702f1bf064bc9fc5">
+
+    <style>
+      body {
+        display: flex;
+      }
+    </style>
 
     <script>
       console.log('1', <%= count %>>);
@@ -13,6 +18,16 @@
 
 
   <body>
-    {{ count }} <%= count %>
+    <div class="views">
+      <%= views %>
+    </div>
+
+    <div class="clickIds">
+      <%= clickIds %>
+    </div>
+
+    <div class="customs">
+      <%= customs %>
+    </div>
   </body>
 </html>

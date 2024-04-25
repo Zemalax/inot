@@ -5,7 +5,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-let globalVariable = 0;
+let views = 0;
+let clickIds = [];
+let customs = [];
 
 app
     .set('views', path.join(__dirname, 'views'))
@@ -61,7 +63,11 @@ app.get('/', (request, response) => {response.render('pages/index')});
 
 app.get('/tracker', (request, response) => {
     globalVariable++;
-    response.render('pages/tracker', {count: globalVariable})
+    response.render('pages/tracker', {
+        views: views,
+        clickIds: clickIds,
+        customs: customs,
+    })
 });
 
 
