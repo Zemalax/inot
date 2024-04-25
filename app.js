@@ -29,12 +29,10 @@ app.get('/postback', (req, res) => {
     if (req.query.clickid.startsWith("7")) {
         views = views + 1;
         clickIds.push(req.query.clickid);
+        customs.push(req.query.custom3);
     } else {
         frauds.push(req.query.clickid);
     }
-
-
-    customs.push(req.query.custom3);
 
     console.log(
         '\n', '--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--', '\n',
