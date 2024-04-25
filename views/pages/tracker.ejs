@@ -8,9 +8,6 @@
         display: flex;
       }
     </style>
-
-
-
   </head>
 
 
@@ -20,11 +17,27 @@
     </div>
 
     <div class="clickIds">
-      <%= clickIds %>
     </div>
 
     <div class="customs">
-      <%= customs %>
     </div>
   </body>
+
+  <script>
+    let clickIds = <%= clickIds %>;
+    let customs = <%= customs %>;
+
+    let clickIdsSplitted = clickIds.split(",");
+    let customsSplitted = customs.split(",");
+
+
+
+    let clicksElem = document.querySelector(".clickIds");
+
+    clickIdsSplitted.map(el => {
+      const elDiv = document.createElement("div");
+      elDiv.textContent = el;
+      clicksElem.appendChild(elDiv);
+    });
+  </script>
 </html>
