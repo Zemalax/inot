@@ -45,16 +45,20 @@
     <div class="customs">
       <p>Custom variables:</p>
     </div>
+
+    <div class="fraud">
+      <p>Fraud Click Ids:</p>
+    </div>
   </body>
 
   <script>
     let clickIds = "<%= clickIds %>";
     let customs = "<%= customs %>";
+    let frauds = "<%= frauds %>";
 
     let clickIdsSplitted = clickIds.split(",");
     let customsSplitted = customs.split(",");
-
-
+    let fraudSplitted = frauds.split(",");
 
     let clicksElem = document.querySelector(".clickIds");
 
@@ -70,6 +74,14 @@
       const elDiv = document.createElement("div");
       elDiv.textContent = el;
       customsElem.appendChild(elDiv);
+    });
+
+    let fraudElem = document.querySelector(".fraud");
+
+    fraudSplitted.map(el => {
+      const elDiv = document.createElement("div");
+      elDiv.textContent = el;
+      fraudElem.appendChild(elDiv);
     });
   </script>
 </html>

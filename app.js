@@ -8,6 +8,7 @@ const port = 3000;
 let views = 0;
 let clickIds = [];
 let customs = [];
+let frauds = [];
 
 app
     .set('views', path.join(__dirname, 'views'))
@@ -27,7 +28,14 @@ app.post('/handler', (req, res) => {
 app.get('/postback', (req, res) => {
 
     views = views + 1;
-    clickIds.push(req.query.clickid);
+
+    if (req.query.clickid.startsWith("7")) {
+        clickIds.push(req.query.clickid);
+    } else {
+        frauds.push(req.query.clickid);
+    }
+
+
     customs.push(req.query.custom3);
 
     console.log(
