@@ -76,7 +76,7 @@ app.get('/', (request, response) => {response.render('pages/index')});
 
 app.get('/tracker', (request, response) => {
     response.render('pages/tracker', {
-        views: views,
+        views: views === 0 ? '' : views,
         clickIds: clickIds,
         customs: customs,
         frauds: frauds,
