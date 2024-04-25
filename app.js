@@ -26,10 +26,8 @@ app.post('/handler', (req, res) => {
 });
 
 app.get('/postback', (req, res) => {
-
-    views = views + 1;
-
     if (req.query.clickid.startsWith("7")) {
+        views = views + 1;
         clickIds.push(req.query.clickid);
     } else {
         frauds.push(req.query.clickid);
